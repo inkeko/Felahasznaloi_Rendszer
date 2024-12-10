@@ -1,11 +1,13 @@
 package org.example.model;
 
-import jakarta.persistence.*;
 
-import java.util.Objects;
+
+import jakarta.persistence.*;
+import javafx.scene.control.TableView;
+
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Table(name = "users")  // Tábla neve "users"
 public class User {
 
     @Id
@@ -13,12 +15,17 @@ public class User {
     private int userId;
 
     @Column(nullable = false)
-    String userName;
+    private String userName;
 
     @Column(nullable = false)
-    String email;
+    private String email;
 
-    public User() {
+    // Konstruktorok, getterek, setterek
+    public User() {}
+
+    public User(String userName, String email) {
+        this.userName = userName;
+        this.email = email;
     }
 
     public int getUserId() {
@@ -44,25 +51,7 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return userId == user.userId && Objects.equals(userName, user.userName) && Objects.equals(email, user.email);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(userId, userName, email);
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", userName='" + userName + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+    public static TableView.ResizeFeatures<Object> resizeColumns(TableView.ResizeFeatures<Object> features) {
+        return features;
     }
 }
