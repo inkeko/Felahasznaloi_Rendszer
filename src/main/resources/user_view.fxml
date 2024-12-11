@@ -28,5 +28,7 @@
         <Button fx:id="addButton" layoutX="111.0" layoutY="335.0" onAction="#handleAddUser" text="Hozzáadás" />
         <Button fx:id="editButton" layoutX="256.0" layoutY="335.0" onAction="#handleEditUser" text="Szerkesztés" />
         <Button fx:id="deleteButton" layoutX="424.0" layoutY="335.0" onAction="#handleDeleteUser" text="Törlés" />
+        <Button fx:id="exitButton" layoutX="111.0" layoutY="380.0" onAction="#handleExit" text="Kilépés" />
+
     </children>
 </AnchorPane>

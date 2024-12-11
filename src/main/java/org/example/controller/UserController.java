@@ -41,6 +41,10 @@ public class UserController {
     @FXML
     private Button deleteButton;
 
+    @FXML
+    private Button exitButton;
+
+
     private final ObservableList<User> users = FXCollections.observableArrayList();
     private final UserService userService = new UserService();
 
@@ -138,5 +142,13 @@ public class UserController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    /**
+     * Program bezárása.
+     */
+    @FXML
+    private void handleExit() {
+        System.exit(0); // Program leállítása
     }
 }
