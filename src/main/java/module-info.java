@@ -12,3 +12,4 @@ module org.example.felahasznaloi_rendszer {
     exports org.example.model;
 }
 
+
